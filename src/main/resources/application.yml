@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: Secure Cloud Gateway
+  port: 8080
+  config:
+    #activate:
+      #on-profile: local
+    import:
+      - application-gateway.yml # gateway 설정 임포트
+      - application-loadbalancer.yml # loadBalancer 설정 임포트
+  pid:
+    file: application.pid # pid를 저장할 파일
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO
+    org.springframework.cloud.gateway: TRACE
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - local
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - dev

@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: test1
+          uri: https://www.naver.com
+          predicates:
+            - Path=/**

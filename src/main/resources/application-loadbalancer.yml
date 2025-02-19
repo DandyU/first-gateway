@@ -1,0 +1,6 @@
+loadbalancer:
+  routes:
+    localhost: lb://testAlias
+  services:
+    testAlias:
+      url: https://www.naver.com
